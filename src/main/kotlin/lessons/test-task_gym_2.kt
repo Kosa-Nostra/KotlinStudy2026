@@ -2,7 +2,7 @@ package lessons
 
 fun main() {
     val weekWeights = mutableListOf(85, 100, 120, 95, 120, 110, 70)
-
+//test
     // 1. Максимальный (используй maxOrNull)
 println("Максимальный вес: ${weekWeights.maxOrNull()}")
     // 2. Минимальный (используй minOrNull)

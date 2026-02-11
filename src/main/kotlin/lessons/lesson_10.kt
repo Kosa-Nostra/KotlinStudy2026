@@ -1,4 +1,4 @@
-package org.example.lessons_1_10
+package lessons
 
 fun main() {
     printNameAndAge(userName = getName(),userAge = getAge())

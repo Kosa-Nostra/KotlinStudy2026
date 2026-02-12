@@ -3,7 +3,6 @@ package lessons
 fun main() {
     val purchases = inputPurchasesPrices()
     if (purchases.isNotEmpty()) {
-        println("Введите стоимость вашей покупки(0 для выхода): ")
         for (i in purchases) {
             println("Покупка: $i , кэшбэк: ${calculateCashback(i)}")
         }

@@ -24,7 +24,7 @@ fun collectDetailedData(): List<Int> {
     return dataList
 }
 // 2. Оценка одного дня
-fun evaluateDay(hours: Int): String {
+fun evaluateDay(hours: Int): String {//оценка дня
     return when{
         hours in 1..3-> "Хороший темп"
         hours >=4-> "Продуктивный гигант"

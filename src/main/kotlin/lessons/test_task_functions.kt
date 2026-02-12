@@ -9,7 +9,6 @@ val currentWeek = mutableListOf<Int>()
         if(num == 0){break}
         currentWeek.add(num)
     }
-
     println("Введите ваши веса за прошлую неделю(для выхода ввести 0): ")
     while (true){
         val num = readln().toIntOrNull()?:0

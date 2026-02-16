@@ -5,7 +5,7 @@ fun main() {
 //    Set
 //    Map
 
-//    фикс размер у массива , а у списков есть add и remove
+//    фикс размер у массива, а у списков есть add и remove
 //    Array<T>, List<T>
 //    массивы оптимизированы для примитивов
 //    отличается процесс сравнивания элементов
@@ -49,9 +49,9 @@ fun main() {
     val mutableList2 = mutableList.filter {
         it == 42
 
-////    }
-////    mutableList2.forEach {
-////        println(it)
+   }
+   mutableList2.forEach {
+    println(it)
     }
 
     val mutableList3 = mutableList2.map {

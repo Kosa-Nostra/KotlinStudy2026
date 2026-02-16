@@ -1,7 +1,18 @@
 package lessons
 
 const val BALANCE = 100000.0
+data class PurchaseGoal(
+    val target: String,
+    val price: Double,
+    val expenses: List<Double>,
+)
 fun main() {
+    val myGoal = collectGoalData()
+    analyzePossibility(myGoal,BALANCE)
+    weekExpenses(myGoal.expenses.sum())
+    finalReview(myGoal)
+}
+fun collectGoalData(): PurchaseGoal{
     val expenses = mutableListOf<Double>()
     println("Какая у вас цель?: ")
     val target: String = readln()
@@ -16,15 +27,14 @@ fun main() {
             continue
         }
         expenses.add(expense)
-    }
-    finalReview(target,price,expenses,expenses.sum())
 }
-
-fun analyzePossibility(allExpenses: Double, priceOfTarget: Double, balance: Double): String {
-    val remainingMoney = balance - allExpenses
+    return PurchaseGoal(target,price,expenses)
+}
+fun analyzePossibility(goal: PurchaseGoal, balance: Double): String {
+    val remainingMoney = balance - goal.expenses.sum()
     return when {
-        priceOfTarget>remainingMoney->"Пока что цель вне досягаемости"
-        (priceOfTarget>(remainingMoney/2.0))->"Рискованно, но достижимо!"
+        goal.price>remainingMoney->"Пока что цель вне досягаемости"
+        (goal.price>(remainingMoney/2.0))->"Рискованно, но достижимо!"
         else-> "Цель достижима!"
     }
 }
@@ -35,15 +45,15 @@ fun weekExpenses(allExpenses: Double): String {
         else -> "Высокие траты"
     }
 }
-fun finalReview(target: String,priceOfTarget: Double,listOfExpenses: List<Double>, allExpenses:Double){
-    println("Цель: $target")
-    println("Цена: $priceOfTarget")
+fun finalReview(goal: PurchaseGoal){
+    println("Цель: ${goal.target}")
+    println("Цена: ${goal.price}")
     println("Траты: ")
-    for((index,expense) in listOfExpenses.withIndex()) {
+    for((index,expense) in goal.expenses.withIndex()) {
         println("№:${index+1}: $expense")
     }
     println("Общая сумма всех расходов: ")
-    println(allExpenses)
-    println(weekExpenses(allExpenses))
-    println(analyzePossibility(allExpenses, priceOfTarget,BALANCE))
+    println(goal.expenses.sum())
+    println(weekExpenses(goal.expenses.sum()))
+    println(analyzePossibility(goal,BALANCE))
 }

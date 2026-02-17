@@ -1,5 +1,5 @@
 package oop_lessons
-data class Athlete(
+data class Athlete123(//renamed to Athlete 123
     val name: String,
     val sport: String,
     val trainingHourPerWeek: Double,
@@ -9,7 +9,7 @@ fun main() {
 val someAthlete = registerAthlete()
     getTrainingStatus(someAthlete)
 }
-fun registerAthlete(): Athlete{
+fun registerAthlete(): Athlete123{
     println("Ваше имя: ")
     val name = readln()
     println("Ваша спортивная дисциплина: ")
@@ -18,9 +18,9 @@ fun registerAthlete(): Athlete{
     val trainingHourPerWeek = readln().toDoubleOrNull()?:0.0
     println("Вы профессионал?(true/false): ")
     val isProfessional = readln().toBoolean()
-    return Athlete(name,sport,trainingHourPerWeek,isProfessional)
+    return Athlete123(name,sport,trainingHourPerWeek,isProfessional)
 }
-fun getTrainingStatus(athlete: Athlete){
+fun getTrainingStatus(athlete: Athlete123){
     if (athlete.isProfessional){
         println("\"${athlete.name}\" — серьезный профи в дисциплине \"${athlete.sport}\"!")
     }else if(athlete.trainingHourPerWeek > 10.0){

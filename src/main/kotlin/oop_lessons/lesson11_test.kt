@@ -1,5 +1,5 @@
 package oop_lessons
-data class Car(
+data class Car123(//renamed to Car123
     val brand: String,
     val model: String,
     val mileage: Double,
@@ -9,7 +9,7 @@ fun main() {
     val myCar = getCarInfo()
     checkService(myCar)
 }
-fun getCarInfo(): Car{
+fun getCarInfo(): Car123{
         println("Введите марку авто: ")
         val brand: String = readln()
         println("Введите модель авто: ")
@@ -18,9 +18,9 @@ fun getCarInfo(): Car{
         val mileage = readln().toDoubleOrNull()?:0.0
         println("Введите пробег на последнем ТО: ")
         val lastServiceMileage = readln().toDoubleOrNull()?:0.0
-    return Car(brand,model, mileage, lastServiceMileage)
+    return Car123(brand,model, mileage, lastServiceMileage)
 }
-fun checkService(car: Car){
+fun checkService(car: Car123){
     if ((car.mileage - car.lastServiceMileage)>10000) {
         println("Машине ${car.brand} ${car.model} пора на сервис!")
     }else{

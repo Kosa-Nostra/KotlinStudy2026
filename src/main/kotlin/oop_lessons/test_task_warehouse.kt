@@ -9,7 +9,7 @@ data class Product(
         println("Товар: $name, количество: $quantity, цена за ед.: $price")
     }
     fun sell(amount: Int){
-        if (quantity>amount){
+        if (quantity>=amount){
             quantity -= amount
             println("Продано $amount шт.")
         }else{

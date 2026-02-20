@@ -2,8 +2,9 @@ package oop_lessons
 
 class Car(
     val model: String,
+    initialPrice:Double,
 ) {
-    var price: Double = 0.0
+    var price: Double = if(initialPrice > 0.0) initialPrice else 0.0
         private set
     var isSold: Boolean = false
         private set
@@ -11,13 +12,6 @@ class Car(
         isSold = true
     }
 
-    fun setPrice(_price: Double) {
-        if (_price < 0.0) {
-            println("Вы не можете установить цену $price, установлено 0.0")
-            price = 0.0
-        }else price = _price
-
-    }
 }
 fun showCars(cars: List<Car>) {
     for ((index, car) in cars.withIndex()) {
@@ -39,12 +33,9 @@ fun buyCar(cars: List<Car>){
     }else println("Машина с номером $input не найдена!")
 }
 fun main() {
-    val car1 = Car("Cadillac Escalade")
-    car1.setPrice(2900000.0)
-    val car2 = Car("ZAZ Sens")
-    car2.setPrice(350000.0)
-    val car3 = Car("Kia Sportage")
-    car3.setPrice(1500000.0)
+    val car1 = Car("Cadillac Escalade",2900000.0)
+    val car2 = Car("ZAZ Sens",3500000.0)
+    val car3 = Car("Kia Sportage",1500000.0)
     val carList = mutableListOf<Car>(car1, car2, car3)
     while(true){
         println("Выберите пункт меню: ")

@@ -1,32 +1,27 @@
 package oop_lessons
 
 class Car(
-    private var model: String,
-    private var price: Double,
-    private var isSold: Boolean = false,
-){
-    init {
-        if(price<0.0){
-            println("Вы не можете установить цену $price, установлено 0.0")
-            price = 0.0
-        }
-    }
-    fun getModel(): String {
-        return model
-    }
-    fun getPrice(): Double {
-        return price
-    }
-    fun isSold(): Boolean {
-        return isSold
-    }
-    fun sell(){
+    val model: String,
+) {
+    var price: Double = 0.0
+        private set
+    var isSold: Boolean = false
+        private set
+    fun sell() {
         isSold = true
     }
+
+    fun setPrice(_price: Double) {
+        if (_price < 0.0) {
+            println("Вы не можете установить цену $price, установлено 0.0")
+            price = 0.0
+        }else price = _price
+
+    }
 }
-fun showCars(cars: List<Car>){
-    for((index, car) in cars.withIndex()){
-        println("Автомобиль №${index+1}: ${car.getModel()}, стоимость: ${car.getPrice()} руб., статус: ${if (car.isSold())"Продана" else "Доступна"} ")
+fun showCars(cars: List<Car>) {
+    for ((index, car) in cars.withIndex()) {
+        println("Автомобиль №${index + 1}: ${car.model}, стоимость: ${car.price} руб., статус: ${if (car.isSold) "Продана" else "Доступна"} ")
     }
 }
 fun buyCar(cars: List<Car>){
@@ -35,18 +30,21 @@ fun buyCar(cars: List<Car>){
     val index = input-1
     if (index in cars.indices){
         val selectedCar = cars[index]//берем нужную машину из списка
-        if (selectedCar.isSold()) {
-            println("Простите, но машина ${selectedCar.getModel()} уже продана")
+        if (selectedCar.isSold) {
+            println("Простите, но машина ${selectedCar.model} уже продана")
         }else{
             selectedCar.sell()
-            println("Поздравляем, вы купили ${selectedCar.getModel()} за ${selectedCar.getPrice()} руб.")
+            println("Поздравляем, вы купили ${selectedCar.model} за ${selectedCar.price} руб.")
         }
     }else println("Машина с номером $input не найдена!")
 }
 fun main() {
-    val car1 = Car("Cadillac Escalade",12000000.0,false)
-    val car2 = Car("ZAZ Sens", 350000.0,false)
-    val car3 = Car("Kia Sportage",1500000.0,true)
+    val car1 = Car("Cadillac Escalade")
+    car1.setPrice(2900000.0)
+    val car2 = Car("ZAZ Sens")
+    car2.setPrice(350000.0)
+    val car3 = Car("Kia Sportage")
+    car3.setPrice(1500000.0)
     val carList = mutableListOf<Car>(car1, car2, car3)
     while(true){
         println("Выберите пункт меню: ")

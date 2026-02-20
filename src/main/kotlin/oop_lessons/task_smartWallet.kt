@@ -50,6 +50,5 @@ fun main() {
             3->println("Баланс: ${myWallet.balance}")
             0->break
         }
-
     }
 }

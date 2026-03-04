@@ -5,6 +5,7 @@ fun main() {
     val ex2 = Plank()
     val ex3 = Stretching()
     val workoutList = mutableListOf<Exercise>(ex1, ex2, ex3)
+    println("НОВАЯ ВЕРСИЯ ПРИЛОЖЕНИЯ!!!")
     workoutList.forEach {
         println()
         it.start()

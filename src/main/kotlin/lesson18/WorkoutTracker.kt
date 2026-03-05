@@ -1,5 +1,19 @@
 package lesson18
 
+open class Exercise(
+    val name: String,
+    val duration: Int,
+    val intensity: Intensity,
+    val restTime: Int = 30,
+) {
+    open fun start(){
+        val alert = when (intensity) {
+            Intensity.HIGH -> " !!!"
+            else -> ""
+        }
+        println("Подготовка к упражнению: $name$alert")
+    }
+}
 class Stretching: Exercise("Растяжка",100,Intensity.LOW) {
     override fun start() {
         super.start()

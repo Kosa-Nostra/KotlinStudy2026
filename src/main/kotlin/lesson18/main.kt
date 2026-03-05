@@ -11,6 +11,7 @@ fun main() {
         it.start()
     }
     println("Общее время тренировки:")
-    println(workoutList.sumOf { it.duration })
+    val allTime = workoutList.sumOf { it.duration + it.restTime }
+    println(allTime)
 
 }

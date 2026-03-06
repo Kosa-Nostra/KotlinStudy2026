@@ -21,5 +21,9 @@ fun main() {
     println("Кол-во упражнений \"Жим\": ${workoutResults.count { it.name == "Жим" }}")
     println("Есть подходы более 100 кг?: ${workoutResults.any{ it.weight >= 100.0 }}")
     workoutResults.map { it.name }.distinct().forEach { println("Уникальное название: $it") }
-
+    val(heavy,light)=workoutResults.partition { it.weight >= 50.0 }
+    println("=========Силовые упражнения=========")
+    heavy.forEach {println("Упражнение: ${it.name}, вес: ${it.weight} кг")}
+    println("=========Упражнения на выносливость=========")
+    light.forEach {println("Упражнение: ${it.name}, вес: ${it.weight} кг")}
 }

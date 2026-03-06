@@ -12,10 +12,15 @@ fun main() {
         RawExercise("Присед",15,"MEDIUM"),
         RawExercise("Тяга",13,"HIGH"),
     )
-    val heavyWorkout = exerciseList.filter { it.intensity == "HIGH" }
-    println("Самые тяжелые тренировки: $heavyWorkout")
-    val longWorkout = exerciseList.filter { it.duration >= 10 }
-    println("Самые длинные тренировки: $longWorkout")
+    println("Список упражнений: ")
+    exerciseList.forEach {
+        println("Название: ${it.name}, интенсивность: ${it.intensity}, длительность: ${it.duration}")
+    }
+    println("Самые тяжелые тренировки:")
+    exerciseList.filter { it.intensity == "HIGH" }.forEach {println("Упражнение: ${it.name}, длительность: ${it.duration}")}
+    println("Самые длинные тренировки: ")
+    exerciseList.filter { it.duration >= 10 }.forEach {println("Упражнение: ${it.name}, интенсивность: ${it.intensity}")}
     val highWorkoutsDuration = exerciseList.filter { it.intensity == "HIGH" }.sumOf { it.duration }
     println("Длительность тяжелых тренировок: $highWorkoutsDuration")
+
 }

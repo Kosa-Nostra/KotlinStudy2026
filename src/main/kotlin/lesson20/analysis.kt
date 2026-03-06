@@ -19,4 +19,7 @@ fun main() {
     println("Общий тоннаж за тренировку: $totalWeight кг")
     println("Рекордный вес: ${workoutResults.maxByOrNull { it.weight }}")
     println("Кол-во упражнений \"Жим\": ${workoutResults.count { it.name == "Жим" }}")
+    println("Есть подходы более 100 кг?: ${workoutResults.any{ it.weight >= 100.0 }}")
+    workoutResults.map { it.name }.distinct().forEach { println("Уникальное название: $it") }
+
 }

@@ -15,4 +15,8 @@ fun main() {
         Set("Отведения гантелей",36,10.0)
     )
     workoutResults.filter { it.weight>50 }.forEach {println("Тяжелый подход: ${it.name}, вес: ${it.weight}")}
+    val totalWeight = workoutResults.sumOf { it.weight * it.reps }
+    println("Общий тоннаж за тренировку: $totalWeight кг")
+    println("Рекордный вес: ${workoutResults.maxByOrNull { it.weight }}")
+    println("Кол-во упражнений \"Жим\": ${workoutResults.count { it.name == "Жим" }}")
 }

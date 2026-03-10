@@ -12,4 +12,6 @@ fun main() {
     println(guy1)
     val guy2 = guy1.copy(name="Not Ayder")
     println(guy2)
+    val(name,age,weight,rank) = guy1
+    println(name)
 }

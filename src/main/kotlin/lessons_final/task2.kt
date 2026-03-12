@@ -31,6 +31,8 @@ fun main() {
         TrainingDay("11.03.2026",listOf()),//restDay
         TrainingDay("12.03.2026",upperBody),
         TrainingDay("13.03.2026",lowerBody),
+        TrainingDay("14.03.2026",listOf()),//restDay
+        TrainingDay("15.03.2026",listOf()),//restDay
     )
     trainingWeek.forEach {
         println("Дата: ${it.date},Интенсивность: ${it.intensity()},Статус: ${if (it.intensity()>60.0)"Тяжелая тренировка" else "Легкая тренировка"}  ")

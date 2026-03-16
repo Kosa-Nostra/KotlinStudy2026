@@ -10,6 +10,11 @@ fun main() {
         println(it.takeOff())
         println(it.land())
     }
+    hangar.forEach {
+        println(if (it is PassengerPlane){
+            "${it.model} is a passenger plane"
+        }else "${it.model} is a fighter jet")
+    }
 }
 fun performCheck(unit: Serviceable){
     println(unit.repair())

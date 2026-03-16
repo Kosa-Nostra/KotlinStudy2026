@@ -8,6 +8,7 @@ fun main() {
         CardioTraining(20.5,26),
     )
     trainings.forEach {
-        println("Тренировка $it принесла мне: ${it.calculateXP()} очков опыта")
+        println("Упражнение: ${it.title} | Статус: ${it.getStatus()}|XP: ${it.calculateXP()}")
     }
+
 }

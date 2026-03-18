@@ -14,7 +14,9 @@ fun main() {
     val dangerZone = hangar.filter { it.pilot != null && it.pilot.licenseId == null }
     println("Опасная зона: ")
     dangerZone.forEach { println("Воздушное судно: ${it.model},пилот: ${it.pilot?.name}")}
-    val droneCount = hangar.count(){it.pilot == null}
+    val droneCount = hangar.count {it.pilot == null}
     println("Количество дронов в ангаре: $droneCount")
     println(hangar.any(){it.model == "F-22"})
+    val report = hangar.map {"Борт: ${it.model} | Статус: ${if(it.pilot?.name != null) "Пилот" else "Дрон"}"}
+    report.forEach { println(it) }
 }

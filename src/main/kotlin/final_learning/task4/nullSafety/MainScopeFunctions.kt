@@ -1,0 +1,15 @@
+package final_learning.task4.nullSafety
+
+fun main() {
+    val pilot_one = Pilot("Ayder", "MAR12344321123")
+    val pilot_two = Pilot("John", null)
+    val hangar = listOf<Aircraft>(
+        Aircraft("A-330", pilot_one),
+        Aircraft("A-380", pilot_two),
+        Aircraft("F-22", pilot_one),
+        Aircraft("MQ-9", null),
+        Aircraft("MQ-1", null),
+        Aircraft("TB-2", null),
+    )
+    hangar.find { it.model == "A-330" }.let { println(it?.pilot?.name) }
+}

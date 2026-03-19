@@ -15,4 +15,5 @@ fun main() {
     hangar.also {
         println("В ангаре проверено судов: ${hangar.count()}")
     }
+    val newPlane = hangar.find { it.model == "A-380" }.apply { println("Сборка новой модели ${this?.model} завершена") }
 }

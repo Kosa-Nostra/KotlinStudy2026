@@ -12,4 +12,7 @@ fun main() {
         Aircraft("TB-2", null),
     )
     hangar.find { it.model == "A-330" }.let { println(it?.pilot?.name) }
+    hangar.also {
+        println("В ангаре проверено судов: ${hangar.count()}")
+    }
 }

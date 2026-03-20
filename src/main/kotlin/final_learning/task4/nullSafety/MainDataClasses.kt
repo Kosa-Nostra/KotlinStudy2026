@@ -6,5 +6,6 @@ fun main() {
     val air2 = air1.copy(pilot = pilot1)
     println(air1)
     println(air2)
-
+    val air3 = air1.copy(model="A-321 super", pilot = air2.pilot)
+    println(air1 == air3)
 }

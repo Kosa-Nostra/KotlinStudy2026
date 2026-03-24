@@ -18,4 +18,13 @@ fun main() {
     val statusEmergency = FlightStatus.Emergency("Отказ систем")
     val statuses = listOf<FlightStatus>( statusHangar, statusFlight, statusEmergency)
     statuses.forEach { checkStatus(it) }
+    monitorPlane(statusEmergency){message -> println("ВНИМАНИЕ!, ${message.uppercase()}")}
+    monitorPlane(statusFlight){message->println("В полете: ${message}")}
+}
+fun monitorPlane(status: FlightStatus, onEvent: (String)->Unit){
+    when(status){
+        is FlightStatus.InFlight -> onEvent("Самолет в небе")
+        is FlightStatus.Emergency -> onEvent("SOS: ${status.message}")
+        else -> onEvent("Самолёт в ангаре")
+    }
 }
